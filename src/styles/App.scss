@@ -1,0 +1,19 @@
+//
+// MODULES
+@use 'modules/constants' as c;
+@use 'modules/home';
+@use 'modules/navbar';
+@use 'modules/main-content-container';
+@use 'modules/registrations';
+@use 'modules/toast-notif';
+@use 'modules/dashboard-sidebar';
+
+
+// ROOT Styles
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+

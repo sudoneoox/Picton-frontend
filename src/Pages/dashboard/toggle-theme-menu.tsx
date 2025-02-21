@@ -15,16 +15,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
 
 const ToggleThemeMenu = () => {
   const { setTheme } = useTheme();
@@ -52,48 +42,28 @@ const ToggleThemeMenu = () => {
   );
 };
 
-export const AppSidebar = () => {
+const ToggleThemeCard = () => {
+  const [count, setCount] = useState(0);
   return (
-    <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>Test</SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
-    </Sidebar>
+    <>
+      <Card>
+        <CardHeader className="flex flex-col gap-2">
+          <CardTitle> vite + react + tailwind + shadcn</CardTitle>
+          <ToggleThemeMenu />
+        </CardHeader>
+
+        <CardContent className="flex flex-col gap-2">
+          <Button onClick={() => setCount((count) => count + 1)}>
+            Count is {count}
+          </Button>
+        </CardContent>
+
+        <CardFooter className="flex justify-center">
+          Made with love by Filip.
+        </CardFooter>
+      </Card>
+    </>
   );
 };
 
-function AdminDashboard() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <SidebarProvider>
-      <AppSidebar />
-      <main>
-        <SidebarTrigger />
-        <Card>
-          <CardHeader className="flex flex-col gap-2">
-            <CardTitle> vite + react + tailwind + shadcn</CardTitle>
-            <ToggleThemeMenu />
-          </CardHeader>
-
-          <CardContent className="flex flex-col gap-2">
-            <Button onClick={() => setCount((count) => count + 1)}>
-              Count is {count}
-            </Button>
-          </CardContent>
-
-          <CardFooter className="flex justify-center">
-            Made with love by Filip.
-          </CardFooter>
-        </Card>
-      </main>
-    </SidebarProvider>
-  );
-}
-
-export default AdminDashboard;
+export default ToggleThemeCard;

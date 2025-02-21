@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { useLocation } from "react-router-dom";
 import Footer from "@/components/Footer";
-import AdminDashboard from "@/Pages/dashboard/Dashboard";
+import AdminDashboard from "@/Pages/dashboard/AdminDashboard";
 
 const Layout = () => {
   const location = useLocation();
@@ -11,10 +11,10 @@ const Layout = () => {
 
   return (
     <div className="app-container">
-      {/* DONT SHOW NAVBAR ON DASHBOARDS */}
+      {/* IMPORTANT: DONT SHOW NAVBAR OR FOOTER ON DASHBOARDS */}
       {pathname === "/admin/dashboard" || pathname === "/dashboard" ? (
         <>
-          <AdminDashboard />
+          <Outlet />
         </>
       ) : (
         <>
